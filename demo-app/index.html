@@ -1,196 +1,288 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>DEMO APP</title>
-        <link href="/favicon.png" rel="icon" type="image/png"/>
-
-        <!-- Reset CSS -->
-        <link rel="stylesheet" href="http://meyerweb.com/eric/tools/css/reset/reset.css">
-
-        <!-- Bootstrap -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-        <style type="text/css">
-        .spacer {
-            height: 500px;
+<head>
+    <title>DEMO APP</title>
+    <style>
+        [id^="overflow"] {
+            width: 100px;
+            height: 100px;
+            background-color: black;
         }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <h1>DEMO APP</h1>
-            <div class="subtitle">DEMO APP</div>
 
-            <hr />
+        #overflow {
+            overflow: hidden;
+        }
 
-            <div style="position: relative; height: 200px;">
-                <div id="draggable" data-dropzone="#droppable" style="width:100px; height:100px; background-color:steelblue; border:2px solid black; line-height:100px; text-align:center; cursor:move; font-size:12px; position:absolute;z-index:2;">Drag me!</div>
-                <div id="droppable" style="position:absolute;right:0; width:200px; height:200px; background-color:lightgrey; line-height:200px; text-align:center; cursor:move; font-size:12px">Dropzone</div>
-            </div>
+        #overflow-x {
+            overflow-x: hidden;
+        }
 
-            <hr />
+        #overflow-y {
+            overflow-y: hidden;
+        }
 
-            <div id="hidden" class="hidden">I'm a hidden element</div>
-            <div id="visible">I'm a visible element</div>
+        #overflow-0w {
+            overflow: hidden;
+            width: 0px;
+        }
 
-            <hr />
+        #overflow-0h {
+            overflow: hidden;
+            height: 0px;
+        }
 
-            <div id="exisiting">I'm a existing element</div>
+        #overflow-x-0w {
+            overflow-x: hidden;
+            width: 0px;
+        }
 
-            <hr />
+        #overflow-y-0h {
+            overflow-y: hidden;
+            height: 0px;
+        }
+    </style>
+</head>
 
-            <div><button id="btnMakeVisible" class="btn jsToggleElement" data-show="#makeVisible" data-timeout="2000">Show element</button></div>
-            <div id="makeVisible" class="hidden">I'm only visible 2 seconds after the button was clicked</div>
-            <div><button id="btnMakeInvisible" class="btn jsToggleElement" data-hide="#makeInvisible" data-timeout="2000">Hide element</button></div>
-            <div id="makeInvisible">I'm only hidden 2 seconds after the button was clicked</div>
+<body>
+    <main>
+        <h2><code>{ overflow: hidden; width: 100; height: 100; }</code></h2>
+        <div id="overflow">overflow: hidden</div>
+        <h2><code>{ overflow-x: hidden; width: 100; height: 100; }</code></h2>
+        <div id="overflow-x">overflow: hidden</div>
+        <h2><code>{ overflow-y: hidden; width: 100; height: 100; }</code></h2>
+        <div id="overflow-y">overflow: hidden</div>
+        <h2><code>{ overflow: hidden; width: 0 }</code></h2>
+        <div id="overflow-0w">overflow: hidden</div>
+        <h2><code>{ overflow: hidden; height: 0 }</code></h2>
+        <div id="overflow-0h">overflow: hidden</div>
+        <h2><code>{ overflow-x: hidden; width: 0 }</code></h2>
+        <div id="overflow-x-0w">overflow-x: hidden</div>
+        <h2><code>{ overflow-y: hidden; height: 0 }</code></h2>
+        <div id="overflow-y-0h">overflow-y: hidden</div>
+    </main>
 
-            <hr />
-
-            <div id="textComparison1">I'm the same as the first string</div>
-            <div id="textComparison2">I'm the same as the second string</div>
-            <div id="textComparison3">I'm the same as the first string</div>
-            <div id="textComparison4"></div>
-            <div id="textComparison5"></div>
-            <div id="textComparison6">I'm the same as the first string<span></span></div>
-            <div id="textComparison7"><strong>I'm the same as the <em>first</em> string</strong></div>
-            <div id="textComparison8">I'm a string containing &euro; &copy; &gt;</div>
-            <div id="textComparison9">I'm a string containing &euro; &copy; &gt;</div>
-
-            <hr />
-
-            <div id="textDoesNotContainCucumber">This element contains strawberry</div>
-            <div id="textDoesContainCucumber">This element contains cucumber</div>
-            <div><input type="text" id="valueDoesNotContainCucumber" value="This input contains strawberry" size="30"/></div>
-            <div><input type="text" id="valueDoesContainCucumber" value="This input contains cucumber" size="30"/></div>
-
-            <hr />
-
-            <div id="attributeComparison" role="note">This element has a role attribute with the value "note"</div>
-            <div id="cssAttributeComparison" style="color:rgba(255,0,0,1); font-weight: 700">This element has a color css attribute with the value "rgba(255,0,0,1)"</div>
-
-            <hr />
-
-            <input type="checkbox" id="checkbox" value="y">
-            <input type="text" id="textinput" placeholder="Textinput">
-
-            <hr />
-
-            <div id="square100x100" style="width: 100px; height: 100px; background-color: black"></div>
-
-            <hr />
-
-            <div id="classTest" class="class1 class2">I have cthe class class1 and class2 but not class3</div>
-
-            <hr />
-
-            <div><a id="linkSameWindow" href="http://example.com/">This link opens example.com in the same window</a></div>
-            <div><a id="linkNewWindow" href="http://example.com/" target="_blank">This link opens example.com in a new window</a></div>
-
-            <hr />
-
-            <a href="https://example.com" id="testClick">Navigate to example.com</a>
-            <button id="toggleMessage">Open different alert based on click or double click</button>
-            <div id="message1" class="hidden">This is the first message</div>
-            <div id="message2" class="hidden">This is the second message</div>
-            <div id="toggleBackground">Change the background of this element based on click or double click</div>
-
-            <hr />
-
-            <div><input type="text" size="30" value="" id="testInput" placeholder="Test input"></div>
-
-            <hr />
-
-            <form id="formSubmitTest">
-                <div class="message hidden">
-                    Form is submitted!
-                </div>
-                <button type="submit">Submit</button>
-            </form>
-
-            <hr />
-
-            <div>
-                <button id="waitForCheckedBtn" data-target="#waitForCheckedElement" data-action='{"checked": "true"}'>Check</button>
-                <input type="checkbox" id="waitForCheckedElement" value="test"/>
-            </div>
-            <div>
-                <button id="waitForEnabledBtn" data-target="#waitForEnabledElement" data-action='{"disabled": "false"}'>Enable</button>
-                <input type="input" id="waitForEnabledElement" value="test" disabled/>
-            </div>
-            <div>
-                <button id="waitForSelectedBtn" data-target="#waitForSelectedElement" data-action='{"select": "2"}'>Select</button>
-                <select id="waitForSelectedElement">
-                    <option value="1" selected>First option</option>
-                    <option value="2">Second option</option>
-                </select>
-            </div>
-            <div>
-                <button id="waitForVisibleBtn" data-target="#waitForVisibleElement" data-action='{"toggleClass": "hidden"}'>Visible</button>
-                <span id="waitForVisibleElement" class="hidden">Here I am!</span>
-            </div>
-            <div>
-                <button id="waitForContainsTextBtn" data-target="#waitForContainsTextElement" data-action='{"text": "test"}'>Contains text</button>
-                <span id="waitForContainsTextElement"></span>
-            </div>
-            <div>
-                <button id="waitForContainsValueBtn" data-target="#waitForContainsValueElement" data-action='{"value": "test"}'>Contains value</button>
-                <input type="input" id="waitForContainsValueElement" value=""/>
-            </div>
-            <div>
-                <button id="waitForCreateBtn" data-target="#waitForCreateElement" data-action='{"create": "<span>test</span>"}'>Create</button>
-                <span id="waitForCreateElement"></span>
-            </div>
-
-            <hr />
-
-            <div id="testKeyResponse"></div>
-
-            <hr />
-
-            <div><button id="openAlert">Open an alert box</button></div>
-            <div><button id="openConfirm">Open an confirm box</button></div>
-            <div id="confirmResult"></div>
-            <div><button id="openPrompt">Open an prompt</button></div>
-            <div id="promptResult"></div>
-
-            <hr />
-
-            <div>
-                <select id="selectElementTest">
-                    <option name="firstOption" value="first">Option #1</option>
-                    <option name="secondOption" value="second">Option #2</option>
-                    <option name="thirdOption" value="third">Option #3</option>
-                    <option name="fourthOption" value="fourth">Option #4</option>
-                </select>
-            </div>
-
-            <hr />
-
-            <div>
-                <div id="moveTo">
-                    Move to me please
-                </div>
-            </div>
-
-            <hr />
-
-            <div class="spacer"></div>
-
-            <footer id="footer">
-                <div>The bottom of the page</div>
-            </footer>
-        </div>
-
-        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <!-- Include all compiled plugins (below), or include individual files as needed -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-        <!-- jQuery cookie plugin -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
-
-        <script src="inc/script.js"></script>
-    </body>
-</html>
+    <script>
+        function isElementDisplayed(element) {
+            function nodeIsElement(node) {
+                if (!node) {
+                    return false;
+                }
+                switch (node.nodeType) {
+                    case Node.ELEMENT_NODE:
+                    case Node.DOCUMENT_NODE:
+                    case Node.DOCUMENT_FRAGMENT_NODE:
+                        return true;
+                    default:
+                        return false;
+                }
+            }
+            function parentElementForElement(element) {
+                if (!element) {
+                    return null;
+                }
+                return enclosingNodeOrSelfMatchingPredicate(element.parentNode, nodeIsElement);
+            }
+            function enclosingNodeOrSelfMatchingPredicate(targetNode, predicate) {
+                for (let node = targetNode; node && node !== targetNode.ownerDocument; node = node.parentNode) {
+                    if (predicate(node)) {
+                        return node;
+                    }
+                }
+                return null;
+            }
+            function enclosingElementOrSelfMatchingPredicate(targetElement, predicate) {
+                for (let element = targetElement; element && element !== targetElement.ownerDocument; element = parentElementForElement(element)) {
+                    if (predicate(element)) {
+                        return element;
+                    }
+                }
+                return null;
+            }
+            function cascadedStylePropertyForElement(element, property) {
+                if (!element || !property) {
+                    return null;
+                }
+                // if document-fragment, skip it and use element.host instead. This happens
+                // when the element is inside a shadow root.
+                // window.getComputedStyle errors on document-fragment.
+                if ("ShadowRoot" in window && element instanceof window.ShadowRoot) {
+                    element = element.host;
+                }
+                const computedStyle = window.getComputedStyle(element);
+                const computedStyleProperty = computedStyle.getPropertyValue(property);
+                if (computedStyleProperty && computedStyleProperty !== "inherit") {
+                    return computedStyleProperty;
+                }
+                // Ideally getPropertyValue would return the 'used' or 'actual' value, but
+                // it doesn't for legacy reasons. So we need to do our own poor man's cascade.
+                // Fall back to the first non-'inherit' value found in an ancestor.
+                // In any case, getPropertyValue will not return 'initial'.
+                // FIXME: will this incorrectly inherit non-inheritable CSS properties?
+                // I think all important non-inheritable properties (width, height, etc.)
+                // for our purposes here are specially resolved, so this may not be an issue.
+                // Specification is here: https://drafts.csswg.org/cssom/#resolved-values
+                const parentElement = parentElementForElement(element);
+                return cascadedStylePropertyForElement(parentElement, property);
+            }
+            // function elementHasBoundingBox(element: Element): boolean {
+            //     const boundingBox = element.getBoundingClientRect()
+            //     return boundingBox.width > 0 && boundingBox.height > 0
+            // }
+            function elementSubtreeHasNonZeroDimension({ element, dimension, }) {
+                const boundingBox = element.getBoundingClientRect();
+                console.log({ boundingBox });
+                if (boundingBox.width > 0 && boundingBox.height > 0) {
+                    return true;
+                }
+                // Paths can have a zero width or height. Treat them as shown if the stroke width is positive.
+                if (element.tagName.toUpperCase() === "PATH" &&
+                    (boundingBox.width > 0 || boundingBox.height > 0)) {
+                    const strokeWidth = cascadedStylePropertyForElement(element, "stroke-width");
+                    return !!strokeWidth && Number(strokeWidth) > 0;
+                }
+                const cascadedOverflow = cascadedStylePropertyForElement(element, `overflow-${dimension}`);
+                console.log({ cascadedOverflow });
+                if (cascadedOverflow === "hidden" &&
+                    (dimension === "x" ? boundingBox.width : boundingBox.height) === 0) {
+                    return false;
+                }
+                // If the container's overflow is not hidden and it has zero size, consider the
+                // container to have non-zero dimensions if a child node has non-zero dimensions.
+                return [].some.call(element.childNodes, function (childNode) {
+                    if (childNode.nodeType === Node.TEXT_NODE) {
+                        return true;
+                    }
+                    if (nodeIsElement(childNode)) {
+                        return elementSubtreeHasNonZeroDimension({
+                            element: childNode,
+                            dimension,
+                        });
+                    }
+                    return false;
+                });
+            }
+            // function elementOverflowsContainerOnDimension({ element, dimension }: {element: Element, dimension: 'x' | 'y'}) {
+            //     const cascadedOverflow = cascadedStylePropertyForElement(element, `overflow-${dimension}`)
+            //     if (cascadedOverflow !== 'hidden') {
+            //         return false
+            //     }
+            //     // FIXME: this needs to take into account the scroll position of the element,
+            //     // the display modes of it and its ancestors, and the container it overflows.
+            //     // See Selenium's bot.dom.getOverflowState atom for an exhaustive list of edge cases.
+            //     return true
+            // }
+            // function isElementSubtreeHiddenByOverflow(element: Element): boolean {
+            //     const boundingBox = element.getBoundingClientRect()
+            //     if (boundingBox.width === 0 && isElementSubtreeHiddenByOverflowOnDimension({ element, dimension: 'x' })) {
+            //         return true
+            //     }
+            //     if (boundingBox.height === 0 && isElementSubtreeHiddenByOverflowOnDimension({ element, dimension: 'y' })) {
+            //         return true
+            //     }
+            //     return false
+            // }
+            // function isElementSubtreeHiddenByOverflowOnDimension({ element, dimension }: {element: Element, dimension: 'x' | 'y'}): boolean {
+            //     if (!element) {
+            //         return false
+            //     }
+            //     // TODO: this becomes redundant once we start recursing in the children of the original element
+            //     if (!elementOverflowsContainerOnDimension({ element, dimension })) {
+            //         return false
+            //     }
+            //     if (!element.childNodes.length) {
+            //         return false
+            //     }
+            //     // This element's subtree is hidden by overflow if all child subtrees are as well.
+            //     return [].every.call(element.childNodes, function (childNode: Element) {
+            //         // Returns true if the child node is overflowed or otherwise hidden.
+            //         // Base case: not an element, has zero size, scrolled out, or doesn't overflow container.
+            //         // Visibility of text nodes is controlled by parent
+            //         // TODO: Move three following ifs up to the parent function
+            //         if (childNode.nodeType === Node.TEXT_NODE) {
+            //             return false
+            //         }
+            //         if (!nodeIsElement(childNode)) {
+            //             return true
+            //         }
+            //         if (!elementSubtreeHasNonZeroDimension({ element: childNode, dimension })) {
+            //             return true
+            //         }
+            //         // END TODO
+            //         // Recurse.
+            //         return isElementSubtreeHiddenByOverflowOnDimension({ element: childNode, dimension })
+            //     })
+            // }
+            // walk up the tree testing for a shadow root
+            function isElementInsideShadowRoot(element) {
+                if (!element) {
+                    return false;
+                }
+                if (element.parentNode && element.parentNode.host) {
+                    return true;
+                }
+                return isElementInsideShadowRoot(element.parentNode);
+            }
+            // This is a partial reimplementation of Selenium's "element is displayed" algorithm.
+            // When the W3C specification's algorithm stabilizes, we should implement that.
+            // If this command is misdirected to the wrong document (and is NOT inside a shadow root), treat it as not shown.
+            if (!isElementInsideShadowRoot(element) &&
+                // IE doesn't support document.contains, therefor check before using
+                (typeof document.contains === "function"
+                    ? !document.contains(element)
+                    : !document.body.contains(element))) {
+                return false;
+            }
+            // Special cases for specific tag names.
+            switch (element.tagName.toUpperCase()) {
+                case "BODY":
+                    return true;
+                case "SCRIPT":
+                case "NOSCRIPT":
+                    return false;
+                case "OPTGROUP":
+                case "OPTION": {
+                    // Option/optgroup are considered shown if the containing <select> is shown.
+                    const enclosingSelectElement = enclosingNodeOrSelfMatchingPredicate(element, function (e) {
+                        return e.tagName.toUpperCase() === "SELECT";
+                    });
+                    return isElementDisplayed(enclosingSelectElement);
+                }
+                case "INPUT":
+                    // <input type="hidden"> is considered not shown.
+                    if (element.type === "hidden") {
+                        return false;
+                    }
+                    break;
+                // case 'MAP':
+                // FIXME: Selenium has special handling for <map> elements. We don't do anything now.
+                default:
+                    break;
+            }
+            if (cascadedStylePropertyForElement(element, "visibility") !== "visible") {
+                return false;
+            }
+            console.log("Element is visible", element.id, element);
+            // TODO: return false early if this test fails
+            const hasAncestorWithZeroOpacity = !!enclosingElementOrSelfMatchingPredicate(element, function (e) {
+                return (Number(cascadedStylePropertyForElement(e, "opacity")) === 0);
+            });
+            const hasAncestorWithDisplayNone = !!enclosingElementOrSelfMatchingPredicate(element, function (e) {
+                return cascadedStylePropertyForElement(e, "display") === "none";
+            });
+            if (hasAncestorWithZeroOpacity || hasAncestorWithDisplayNone) {
+                return false;
+            }
+            console.log("Element is not transparent or display none", element.id, element);
+            if (!elementSubtreeHasNonZeroDimension({ element, dimension: "x" })) {
+                console.log("Element has no x dimension", element.id, element);
+                return false;
+            }
+            if (!elementSubtreeHasNonZeroDimension({ element, dimension: "y" })) {
+                console.log("Element has no y dimension", element.id, element);
+                return false;
+            }
+            // if (isElementSubtreeHiddenByOverflow(element) && !elementHasBoundingBox(element)) {
+            //     return false
+            // }
+            return true;
+        }
+    </script>
+</body>
